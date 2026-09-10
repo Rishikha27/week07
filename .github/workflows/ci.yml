@@ -10,7 +10,7 @@ on:
 jobs:
 
   # =========================================================
-  # Backend Tests
+  # Backend Tests — verify all services before publishing images
   # =========================================================
   backend-test:
     name: Test ${{ matrix.service }}
