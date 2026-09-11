@@ -130,12 +130,11 @@ jobs:
     name: Build and Push ${{ matrix.image }}
     runs-on: ubuntu-latest
 
-    # All backend tests must pass before this job starts
-  needs:
-    - backend-test
-    - frontend-test
+    # Backend and frontend tests must pass before this job starts
+    needs:
+      - backend-test
+      - frontend-test
 
-    # Build and push when code is pushed to main or manually triggered
     if: github.event_name == 'push' || github.event_name == 'workflow_dispatch'
 
     strategy:
