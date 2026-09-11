@@ -104,6 +104,13 @@ jobs:
     name: Test frontend
     runs-on: ubuntu-latest
 
+    env:
+      VITE_USER_SERVICE_URL: /api/users
+      VITE_STUDENT_SERVICE_URL: /api/students
+      VITE_LECTURER_SERVICE_URL: /api/lecturers
+      VITE_COURSE_SERVICE_URL: /api/courses
+      VITE_ENROLLMENT_SERVICE_URL: /api/enrollments
+
     steps:
       - name: Checkout repository
         uses: actions/checkout@v7.0.1
@@ -122,7 +129,6 @@ jobs:
       - name: Run frontend tests
         working-directory: frontend
         run: npm run test:run
-
   # =========================================================
   # Build and Push Docker Images
   # =========================================================
